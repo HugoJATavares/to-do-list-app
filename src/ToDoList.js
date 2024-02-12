@@ -8,12 +8,22 @@ class ToDoList extends Component {
         this.state = { 
             toDos: [] };
             this.create = this.create.bind(this);
+            this.update = this.update.bind(this);
             this.remove = this.remove.bind(this);
     }
     create(newTask) {
         this.setState({
             toDos: [...this.state.toDos, newTask]
         });
+    }
+    update(id, updated){
+        const updatedTask = this.state.toDos.map(toDo =>{
+            if(toDo.id === id) {
+                return { ...toDo, task: updated };
+            }
+            return toDo;
+        });
+        this.setState({ toDos: updatedTask})
     }
     remove(id) {
         this.setState({
@@ -22,7 +32,7 @@ class ToDoList extends Component {
     }
     render() {
         const toDos = this.state.toDos.map(toDo =>{
-            return <ToDo key={toDo.id} id={toDo.id} task={toDo.task} removeTask={this.remove}/>
+            return <ToDo key={toDo.id} id={toDo.id} task={toDo.task} removeTask={this.remove} updateTask={this.update}/>
         })
         return (
             <div>
