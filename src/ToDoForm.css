@@ -1,0 +1,39 @@
+.ToDoForm {
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ToDoForm label {
+    min-width: 100%;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.ToDoForm input {
+    flex-grow: 1;
+    border: none;
+    background: #fff;
+    padding: 0 1.5rem;
+    font-size: initial;
+}
+
+.ToDoForm button {
+    padding: 0 1.3rem;
+    border: none;
+    background: #ff6666;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-left: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease-out;
+}
+.ToDoForm button:hover {
+    background: #ff5e5e;
+}
+.ToDoForm input, .ToDo-edit-form button {
+    font-family: "Quicksand", sans-serif;
+    height: 3rem;
+}

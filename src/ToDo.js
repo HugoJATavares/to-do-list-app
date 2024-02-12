@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../src/ToDo.css";
+import "./ToDo.css";
 
 class ToDo extends Component {
     constructor(props) {
@@ -20,26 +20,26 @@ class ToDo extends Component {
     toggleForm() {
         this.setState({ isEditing: !this.state.isEditing });
     }
-    handleToggle(evt){
+    handleToggle(evt) {
         this.props.toggleTask(this.props.id)
     }
     handleUpdate(evt) {
         evt.preventDefault();
         this.props.updateTask(this.props.id, this.state.task);
-        this.setState({ isEditing: false});
+        this.setState({ isEditing: false });
     }
     handleChange(evt) {
         this.setState({
             [evt.target.name]: evt.target.value
-            
+
         });
     }
     render() {
         let result;
         if (this.state.isEditing) {
             result = (
-                <div>
-                    <form onSubmit={this.handleUpdate}>
+                <div className="ToDo">
+                    <form className="ToDo-edit-form" onSubmit={this.handleUpdate}>
                         <input type="text" value={this.state.task} name="task" onChange={this.handleChange} />
                         <button>Update</button>
                     </form>
@@ -47,10 +47,12 @@ class ToDo extends Component {
             );
         } else {
             result = (
-                <div>
-                    <button onClick={this.toggleForm}>Edit</button>
-                    <button onClick={this.handleRemove}>Delete</button>
-                    <li className={this.props.completedTask ? "completed" : ""} onClick={this.handleToggle} >{this.props.task} </li>
+                <div className="ToDo">
+                    <li className={this.props.completedTask ? "To-Do-Task completed" : "To-Do-Task"} onClick={this.handleToggle} >{this.props.task} </li>
+                    <div className="ToDo-buttons">
+                        <button onClick={this.toggleForm}><i class="fas fa-pen" /></button>
+                        <button onClick={this.handleRemove}><i class="fas fa-trash"/></button>
+                    </div>
                 </div>
             );
         }
