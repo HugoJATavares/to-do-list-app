@@ -66,7 +66,7 @@
 .ToDo-edit-form button {
     padding: 0 1.3rem;
     border: none;
-    background: #ff6666;
+    background: #696161;
     color: #fff;
     text-transform: uppercase;
     font-weight: bold;
@@ -76,7 +76,7 @@
     transition: background 0.2s ease-out;
 }
 .ToDo-edit-form button:hover {
-    background: #ff5e5e;
+    background: #746969;
 }
 .ToDo-edit-form input, .ToDo-edit-form button {
     font-family: "Quicksand", sans-serif;
